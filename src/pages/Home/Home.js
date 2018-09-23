@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 const artists = [
   {
@@ -20,8 +21,8 @@ export default class Home extends Component {
     return (
       <ul>
         {artists.map(artist => (
-          <li key={artist.key}>
-            <a href={`/artists/${artist.id}`}>{artist.name}</a>
+          <li key={artist.id}>
+            <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
           </li>
         ))}
       </ul>
