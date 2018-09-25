@@ -55,7 +55,7 @@ export default class Albums extends Component {
 		const { loading, album, error } = this.state;
 		return (
 			<div className="albuminfo">
-				{loading && 'loading albums...'}
+				{loading && 'Loading Album...'}
 				{album && (
 					<React.Fragment>
 						<img src={album.imageUrl} />
