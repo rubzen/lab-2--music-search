@@ -9,13 +9,15 @@ import Albums from "../../pages/Albums/Albums";
 class App extends Component {
   render() {
     return (
-      <Layout>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/artists/:artistId" component={Artists} />
-          <Route exact path="/albums/:albumsId" component={Albums} />
-        </Switch>
-      </Layout>
+      <div className="App">
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/artists/:artistId" component={Artists} />
+            <Route exact path="/albums/:albumsId" component={Albums} />
+          </Switch>
+        </Layout>
+      </div>
     );
   }
 }

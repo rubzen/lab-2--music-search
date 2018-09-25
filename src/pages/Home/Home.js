@@ -19,13 +19,18 @@ const artists = [
 export default class Home extends Component {
   render() {
     return (
-      <ul>
-        {artists.map(artist => (
-          <li key={artist.id}>
-            <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="row mb-4">
+        <ul>
+          {artists.map(artist => (
+            <div className="row mb-4" key={artist.id}>
+              <img src={artist.imageUrl} alt="Imagen Banda" />
+              <div className="col-4">
+                <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
+              </div>
+            </div>
+          ))}
+        </ul>
+      </div>
     );
   }
 }

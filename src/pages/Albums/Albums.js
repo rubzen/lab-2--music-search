@@ -73,7 +73,7 @@ export default class Albums extends Component {
 
     return (
       <div>
-        <h2>{album.name}</h2>
+        <h1>{album.name}</h1>
         {album.albums.map(album => (
           <li key={album.id}>
             <Link to={`/albums/${album.id}`}>{album.name}</Link>
