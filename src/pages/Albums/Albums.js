@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 export default class Albums extends Component {
 	state = {
@@ -54,7 +53,7 @@ export default class Albums extends Component {
 		console.log('2 Album render');
 		const { loading, album, error } = this.state;
 		return (
-			<div className="albuminfo">
+			<div className="albumInfo">
 				{loading && 'Loading Album...'}
 				{album && (
 					<React.Fragment>
@@ -62,7 +61,7 @@ export default class Albums extends Component {
 						<p>{album.name}</p>
 						<p>Tracks: </p>
 						{album.tracks.map((track) => {
-							return <div>{track.names}</div>;
+							return <div>{track.name}</div>;
 						})}
 					</React.Fragment>
 				)}

@@ -53,28 +53,39 @@ export default class Artists extends Component {
 	render() {
 		console.log('2 Artist render');
 		const { loading, artist, error } = this.state;
-		if (loading) {
-			return (
-				<div>
-					<p>Loading Artist...</p>
-				</div>
-			);
-		}
-		if (error)
-			return (
-				<div>
-					<p>{error.message}</p>
-				</div>
-			);
-
 		return (
-			<div>
-				<h1>{artist.name}</h1>
-				{artist.albums.map((album) => (
-					<li key={album.id}>
-						<Link to={`/albums/${album.id}`}>{album.name}</Link>
-					</li>
-				))}
+			<div className="artisInfo">
+				{loading && 'Loading Artist...'}
+				{artist && (
+					<React.Fragment>
+						<div className="row mb-4">
+							<div className="col-4">
+								<img className="img-fluid" src={artist.imageUrl} />
+							</div>
+							<div className="col-8">
+								<h1> {artist.name} </h1>
+								<p>{artist.bio}</p>
+							</div>
+						</div>
+						<h2>ALBUMS:</h2>
+						{artist.albums.map((album) => {
+							return (
+								<div>
+									<Link to={`/albums/${album.id}`}>
+										<div className="row mb-4">
+											<div className="col-3">
+												<img className="img-fluid" src={album.imageUrl} />
+											</div>
+											<div className="col-8">
+												<h1> {album.name} </h1>
+											</div>
+										</div>
+									</Link>
+								</div>
+							);
+						})}
+					</React.Fragment>
+				)}
 			</div>
 		);
 	}
